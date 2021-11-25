@@ -7,7 +7,7 @@ RUN apk update \
     
 RUN ssh-keygen -A && \
     adduser -D -s /sbin/nologin sftpuser && \
-    echo "sftpuserx:ftp123" | chpasswd
+    echo "sftpuser:ftp123" | chpasswd
 
 COPY sshd_config /etc/ssh/sshd_config
 
