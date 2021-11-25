@@ -6,12 +6,12 @@ RUN apk update \
     && apk add openssh-server openssh-sftp-server 
     
 RUN ssh-keygen -A && \
-    adduser -h /home/sftpuser -D -s /sbin/nologin sftpuser && \
+    adduser -D -s /sbin/nologin sftpuser && \
     echo "sftpuser:ftp123" | chpasswd
 
 COPY sshd_config /etc/ssh/sshd_config
 
 EXPOSE 22
 
-CMD ["/usr/sbin/sshd", "-D","-d","-E /home/sftpuser/sshdc"]
+CMD ["/usr/sbin/sshd", "-D","-d"]
  
