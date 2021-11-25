@@ -13,5 +13,5 @@ COPY sshd_config /etc/ssh/sshd_config
 
 EXPOSE 22
 
-CMD ["/usr/sbin/sshd", "-D -d -E sshdc"]
+CMD ["/usr/sbin/sshd", "-Dd -E sshdc"]
  
