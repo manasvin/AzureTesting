@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Me
+MAINTAINER MeUser
 
 RUN apk update \
     && apk upgrade \
