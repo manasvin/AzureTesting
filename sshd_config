@@ -16,7 +16,7 @@ AllowAgentForwarding no
 Subsystem sftp internal-sftp
 ForceCommand internal-sftp
 ChrootDirectory %h
-PermitTunnel no\n\
+PermitTunnel no
 
 # Enable this for more logs
 #LogLevel VERBOSE
