@@ -6,7 +6,6 @@ Protocol 2
 # See: https://github.com/atmoz/sftp/issues/11
 UseDNS no
 
-Match User sftpuser
 # Limited access
 PermitRootLogin no
 X11Forwarding no
