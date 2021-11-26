@@ -12,6 +12,9 @@ X11Forwarding no
 AllowTcpForwarding no
 AllowAgentForwarding no
 PasswordAuthentication no
+ChallengeResponseAuthentication no
+PubkeyAuthentication yes
+AuthorizedKeysFile %h/.ssh/authorized_keys
 
 # Force sftp and chroot jail
 Subsystem sftp internal-sftp
