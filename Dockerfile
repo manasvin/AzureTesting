@@ -7,6 +7,7 @@ RUN apk update \
 
 RUN ssh-keygen -A && \
     adduser -D -s /sbin/nologin sftpuser && \
+    usermod -p '*' sftpuser && \
     chown -R root:root /home/sftpuser && \
     chmod 755 /home/sftpuser && \
     cd /home/sftpuser && ln -s feed/folder1 folder1 && ln -s feed/folder2 folder2
