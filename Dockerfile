@@ -9,9 +9,9 @@ RUN apk update \
     && ssh-keygen -A 
 
 COPY sshd_config /etc/ssh/sshd_config
-COPY create-sftpuser /usr/local/bin/
+COPY entrypoint.sh /
 
-RUN create-sftpuser $SFTP_USERNAME
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 22
 
