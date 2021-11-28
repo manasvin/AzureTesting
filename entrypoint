@@ -1,5 +1,10 @@
 providedusername="${args[0]}"
 
+if [ -z "${providedusername}" ]; then
+  echo "Need username as argument ..."
+  exit 1
+fi
+
 adduser -D -s /sbin/nologin $providedusername
 echo "$providedusername:ftp123" | chpasswd
 #chown -R root:root "/home/$providedusername"
