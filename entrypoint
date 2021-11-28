@@ -1,9 +1,11 @@
-providedusername="${args[0]}"
 
-if [ -z "${providedusername}" ]; then
+
+if [ -z "${SFTP_USERNAME}" ]; then
   echo "Need username as argument ..."
   exit 1
 fi
+
+providedusername="${SFTP_USERNAME}"
 
 adduser -D -s /sbin/nologin $providedusername
 echo "$providedusername:ftp123" | chpasswd
@@ -26,3 +28,6 @@ if [ -d "$userKeysQueuedDir" ]; then
     chown "$uid" "$userKeysAllowedFile"
     chmod 600 "$userKeysAllowedFile"
 fi
+
+
+exec "$@"
