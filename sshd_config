@@ -21,7 +21,6 @@ Subsystem sftp internal-sftp
 ForceCommand internal-sftp
 PermitTunnel no
 
-Match user sftpuser
 ChrootDirectory %h
 
 # Enable this for more logs
