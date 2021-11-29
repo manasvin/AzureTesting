@@ -15,11 +15,6 @@ else
     echo "Target Folders:${TARGET_FEEDFOLDER}"
 fi
 
-linkedfolders=""
-if ! [ -z "${LINKED_FOLDERS}" ]; then
-    linkedfolders="${LINKED_FOLDERS}"
-    echo "Linked Folders:${LINKED_FOLDERS}"
-fi
 
 adduser -h /home/$providedusername -D -s /sbin/nologin $providedusername
 echo "$providedusername:ftp123" | chpasswd
@@ -27,8 +22,15 @@ chown -R root:root "/home/$providedusername"
 chmod 755 "/home/$providedusername"
 
 cd /home/$providedusername
-ln -s datafeed/folder1 folder1
-ln -s datafeed/folder2 folder2
+
+linkedfolders=""
+if ! [ -z "${LINKED_FOLDERS}" ]; then
+    linkedfolders="${LINKED_FOLDERS}"
+    echo "Linked Folders:${LINKED_FOLDERS}"
+    for eachfolder in ${linkedfolders//,/ } ; do
+       ln -s "$targetfeedfldr/$eachfolder" "$eachfolder"
+    done
+fi
 
 userKeysQueuedDir="/home/$providedusername/.ssh/keys"
 
