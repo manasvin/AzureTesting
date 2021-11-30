@@ -6,6 +6,7 @@ ARG SFTP_USERNAME=sftpuser
 RUN apk update \
     && apk upgrade \
     && apk add openssh-server openssh-sftp-server \
+    && rm -rf /var/cache/apk/* \
     && ssh-keygen -A
 
 COPY sshd_config /etc/ssh/sshd_config
