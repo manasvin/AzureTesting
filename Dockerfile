@@ -1,7 +1,5 @@
 FROM alpine:latest
-MAINTAINER MeUser
-
-ARG SFTP_USERNAME=sftpuser
+LABEL OWNER=MeUser
 
 RUN apk update \
     && apk upgrade \
