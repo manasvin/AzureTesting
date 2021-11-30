@@ -5,13 +5,10 @@ FROM alpine:latest
 RUN apk add squid && \
     rm -rf /var/cache/apk/* 
 
-# This will use port 631
-EXPOSE 3128/tcp
+COPY entrypoint.sh /
 
-# Copy the entrypoint script and make sure it's executable.
-# Could have been included into step above, but isn't a real
-# change in image size
-COPY entrypoint.sh /entrypoint.sh
+# the proxy port 
+EXPOSE 3128/tcp
 
 # Set the enty point
 ENTRYPOINT ["/entrypoint.sh"]
